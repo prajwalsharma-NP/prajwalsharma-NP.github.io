@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Aksharaa School | Clone</title>
+<title>Aksharaa School</title>
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: "Segoe UI", sans-serif;
+  font-family:"Segoe UI", sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -54,14 +58,17 @@ nav{
   background:linear-gradient(90deg,#005f86,#0084b8);
   padding:14px;
   text-align:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 nav a{
   color:white;
   margin:0 18px;
   font-weight:600;
-  cursor:pointer;
   position:relative;
+  text-decoration:none;
 }
 
 nav a::after{
@@ -97,7 +104,7 @@ nav a:hover::after{
   to{transform:scale(1.1);}
 }
 
-/* MISSION */
+/* CARDS */
 .cards{
   display:flex;
   justify-content:center;
@@ -239,7 +246,7 @@ footer p{
 <!-- TOP -->
 <div class="top-info">
   <div class="left">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/School_icon.png">
+    <img src="/logo.png">
     <div>
       <h2>AKSHARAA SCHOOL</h2>
       <small>संस्कारयुक्त शिक्षा</small>
@@ -254,16 +261,20 @@ footer p{
 
 <!-- NAV -->
 <nav>
-  <a>Home</a><a>About</a><a>Academics</a><a>Activities</a><a>MUN</a><a>Contact</a>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#academics">Academics</a>
+  <a href="#life">Life of Aksharaa</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+<!-- HOME -->
+<div class="hero" id="home">
+  <img src="/coverpage.jpg">
 </div>
 
-<!-- CARDS -->
-<section class="cards">
+<!-- ABOUT -->
+<section class="cards" id="about">
   <div class="card">
     <div class="icon blue">🎯</div>
     <h3>OUR MISSION</h3>
@@ -283,8 +294,8 @@ footer p{
   </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
-<section class="achievements">
+<!-- ACADEMICS -->
+<section class="achievements" id="academics">
   <h2>Our <span>Achievement</span></h2>
   <p>Celebrating excellence in academics, sports, arts and global recognition.</p>
 
@@ -311,18 +322,18 @@ footer p{
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="gallery">
+<!-- LIFE OF AKSHARAA -->
+<section class="gallery" id="life">
   <h2>Life at Aksharaa</h2>
   <div class="gallery-grid">
-    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1">
-    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
-    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350">
+    <img src="/aksharaa.jpg">
+    <img src="/akshaaraa3.jpg">
+    <img src="/aksharaa2.jpg">
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
+<!-- CONTACT -->
+<footer id="contact">
   <h3>Contact Us</h3>
   <p>📍 Kageshwori Manohara 9, Kathmandu, Nepal</p>
   <p>📞 +977-01-4993031/32/33</p>
@@ -350,3 +361,4 @@ counters.forEach(counter=>{
 
 </body>
 </html>
+
