@@ -40,14 +40,14 @@ body{ background:#f4f8fb; }
   font-size:14px;
 }
 
-/* ================= NAV BAR ================= */
+/* ================= NAV ================= */
 nav{
   background:linear-gradient(90deg,#005f86,#0084b8);
   padding:14px 0;
   text-align:center;
   position:sticky;
   top:0;
-  z-index:999;
+  z-index:1000;
 }
 
 nav a{
@@ -69,9 +69,7 @@ nav a::after{
   transition:.3s;
 }
 
-nav a:hover::after{
-  width:100%;
-}
+nav a:hover::after{ width:100%; }
 
 /* ================= HERO ================= */
 .hero{
@@ -83,27 +81,25 @@ nav a:hover::after{
   width:100%;
   height:100%;
   object-fit:cover;
-  animation:zoom 18s infinite alternate;
 }
 
-@keyframes zoom{
-  from{ transform:scale(1); }
-  to{ transform:scale(1.08); }
+/* ================= ABOUT ================= */
+.about{
+  padding:90px;
+  background:#ffffff;
+  text-align:center;
+}
+
+.about h2{
+  font-size:38px;
+  margin-bottom:20px;
 }
 
 /* ================= ACHIEVEMENTS ================= */
 .achievements{
   padding:100px 60px;
-  background:#ffffff;
+  background:#f4f8fb;
   text-align:center;
-}
-
-.achievements h2{
-  font-size:40px;
-}
-
-.achievements h2 span{
-  color:#c4172c;
 }
 
 .stats{
@@ -114,18 +110,6 @@ nav a:hover::after{
   flex-wrap:wrap;
 }
 
-/* ================= STAT ================= */
-.stat{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all .9s ease;
-}
-
-.stat.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
 /* ================= SQUARE ================= */
 .square{
   position:relative;
@@ -134,26 +118,28 @@ nav a:hover::after{
   border-radius:18px;
   overflow:hidden;
   box-shadow:0 16px 40px rgba(0,0,0,.25);
+  cursor:pointer;
 }
 
-/* IMAGE */
+/* IMAGE ALWAYS VISIBLE */
 .square img{
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:transform 1s ease;
+  transition:transform .8s ease;
 }
 
-/* OVERLAY */
+/* OVERLAY (hidden initially) */
 .square::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.45);
-  transition:.6s;
+  background:rgba(0,0,0,.55);
+  opacity:0;
+  transition:.5s ease;
 }
 
-/* TEXT — ALWAYS VISIBLE */
+/* TEXT (hidden initially) */
 .square span{
   position:absolute;
   inset:0;
@@ -164,26 +150,27 @@ nav a:hover::after{
   font-size:22px;
   font-weight:700;
   letter-spacing:1.4px;
+  opacity:0;
+  transform:translateY(15px);
+  transition:.5s ease;
   z-index:2;
-  opacity:1;
-  animation:textFade 1.2s ease forwards;
 }
 
-@keyframes textFade{
-  from{ opacity:0; transform:translateY(15px); }
-  to{ opacity:1; transform:translateY(0); }
-}
-
-/* HOVER POLISH */
+/* HOVER EFFECT */
 .square:hover img{
-  transform:scale(1.15);
+  transform:scale(1.1);
 }
 
 .square:hover::after{
-  background:rgba(0,0,0,.65);
+  opacity:1;
 }
 
-/* ================= COUNT ================= */
+.square:hover span{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* COUNT */
 .count{
   margin-top:22px;
   padding:12px 50px;
@@ -196,6 +183,31 @@ nav a:hover::after{
 .blue{ background:#005f86; }
 .red{ background:#c4172c; }
 
+/* ================= LIFE AT AKSHARAA ================= */
+.life{
+  padding:90px;
+  background:#ffffff;
+  text-align:center;
+}
+
+.life h2{
+  font-size:38px;
+  margin-bottom:40px;
+}
+
+.life-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.life-grid img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:14px;
+}
+
 /* ================= FOOTER ================= */
 footer{
   background:linear-gradient(90deg,#005f86,#0084b8);
@@ -205,24 +217,17 @@ footer{
   margin-top:100px;
 }
 
-footer p{
-  margin-top:10px;
-  font-size:16px;
-}
-
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
-  .stats{
-    flex-direction:column;
-    align-items:center;
-  }
+  .stats{ flex-direction:column; }
+  .life-grid{ grid-template-columns:1fr; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP INFO -->
+<!-- TOP -->
 <div class="top-info">
   <div class="left">
     <img src="/logo.png">
@@ -252,85 +257,60 @@ footer p{
   <img src="coverpage.jpg">
 </div>
 
+<!-- ABOUT -->
+<section class="about" id="about">
+  <h2>About Aksharaa School</h2>
+  <p>We provide value-based education with academic excellence and emotional intelligence.</p>
+</section>
+
 <!-- ACHIEVEMENTS -->
 <section class="achievements" id="academics">
-  <h2>Our <span>Achievements</span></h2>
+  <h2>Our Achievements</h2>
 
   <div class="stats">
-
-    <div class="stat">
+    <div>
       <div class="square">
         <img src="/img1.jpg">
         <span>STAFF</span>
       </div>
-      <div class="count blue" data-target="200">0</div>
+      <div class="count blue">200+</div>
     </div>
 
-    <div class="stat">
+    <div>
       <div class="square">
         <img src="/img2.jpg">
         <span>STUDENTS</span>
       </div>
-      <div class="count red" data-target="700">0</div>
+      <div class="count red">700+</div>
     </div>
 
-    <div class="stat">
+    <div>
       <div class="square">
         <img src="/img3.jpg">
         <span>GRADUATES</span>
       </div>
-      <div class="count blue" data-target="400">0</div>
+      <div class="count blue">400+</div>
     </div>
+  </div>
+</section>
 
+<!-- LIFE -->
+<section class="life" id="life">
+  <h2>Life at Aksharaa</h2>
+  <div class="life-grid">
+    <img src="/img1.jpg">
+    <img src="/img2.jpg">
+    <img src="/img3.jpg">
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer id="contact">
-  <h3>Contact Us</h3>
-  <p>📍 Kageshwori Manohara 9, Kathmandu, Nepal</p>
-  <p>📞 +977-01-4993031 / 32 / 33</p>
+  <p>📍 Kageshwori Manohara 9, Kathmandu</p>
+  <p>📞 +977-01-4993031</p>
   <p>✉ info@aksharaaschool.edu.np</p>
   <p>© Aksharaa School</p>
 </footer>
-
-<script>
-/* SCROLL + COUNTERS */
-const stats = document.querySelectorAll(".stat");
-
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-
-      const counter = entry.target.querySelector(".count");
-      if(!counter.classList.contains("done")){
-        animate(counter);
-        counter.classList.add("done");
-      }
-    }
-  });
-},{ threshold:0.4 });
-
-stats.forEach(stat=>observer.observe(stat));
-
-function animate(counter){
-  let target = +counter.dataset.target;
-  let count = 0;
-  let speed = target / 90;
-
-  function update(){
-    count += speed;
-    if(count < target){
-      counter.innerText = Math.floor(count) + "+";
-      requestAnimationFrame(update);
-    }else{
-      counter.innerText = target + "+";
-    }
-  }
-  update();
-}
-</script>
 
 </body>
 </html>
