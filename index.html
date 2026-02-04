@@ -118,15 +118,26 @@ nav a:hover::after{ width:100%; }
   line-height:1.7;
 }
 
-/* ================= ACHIEVEMENTS ================= */
-.achievements{
+/* ================= EDUCATION ================= */
+.education{
   padding:100px 60px;
   background:#f4f8fb;
   text-align:center;
 }
 
+.education h2{
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+.education p{
+  max-width:700px;
+  margin:0 auto 60px;
+  font-size:17px;
+}
+
+/* ================= STATS ================= */
 .stats{
-  margin-top:70px;
   display:flex;
   justify-content:center;
   gap:60px;
@@ -144,7 +155,6 @@ nav a:hover::after{ width:100%; }
   cursor:pointer;
 }
 
-/* IMAGE ALWAYS VISIBLE */
 .square img{
   width:100%;
   height:100%;
@@ -152,7 +162,6 @@ nav a:hover::after{ width:100%; }
   transition:transform .8s ease;
 }
 
-/* OVERLAY HIDDEN */
 .square::after{
   content:"";
   position:absolute;
@@ -162,7 +171,6 @@ nav a:hover::after{ width:100%; }
   transition:.5s ease;
 }
 
-/* TEXT HIDDEN */
 .square span{
   position:absolute;
   inset:0;
@@ -275,7 +283,7 @@ footer{
 <nav>
   <a href="#home">Home</a>
   <a href="#about">About</a>
-  <a href="#academics">Academics</a>
+  <a href="#education">Education</a>
   <a href="#life">Life at Aksharaa</a>
   <a href="#contact">Contact</a>
 </nav>
@@ -299,9 +307,13 @@ footer{
   </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
-<section class="achievements" id="academics">
-  <h2>Our Achievements</h2>
+<!-- EDUCATION -->
+<section class="education" id="education">
+  <h2>Education</h2>
+  <p>
+    Our education system focuses on academic excellence, discipline,
+    creativity, and holistic student development.
+  </p>
 
   <div class="stats">
     <div>
