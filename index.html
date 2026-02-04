@@ -15,13 +15,13 @@
 html{ scroll-behavior:smooth; }
 body{ background:#f4f8fb; }
 
-/* TOP BAR */
+/* ================= TOP BAR ================= */
 .top-info{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:14px 50px;
-  background:#fff;
+  background:#ffffff;
   box-shadow:0 2px 6px rgba(0,0,0,.1);
 }
 
@@ -33,21 +33,21 @@ body{ background:#f4f8fb; }
 
 .top-info img{ width:55px; }
 .top-info h2{ color:#005f86; }
-.top-info small{ color:#888; }
+.top-info small{ color:#666; }
 
 .top-info .right span{
-  margin-left:25px;
+  margin-left:22px;
   font-size:14px;
 }
 
-/* NAV */
+/* ================= NAV BAR ================= */
 nav{
   background:linear-gradient(90deg,#005f86,#0084b8);
-  padding:14px;
+  padding:14px 0;
   text-align:center;
   position:sticky;
   top:0;
-  z-index:1000;
+  z-index:999;
 }
 
 nav a{
@@ -55,9 +55,25 @@ nav a{
   margin:0 18px;
   font-weight:600;
   text-decoration:none;
+  position:relative;
 }
 
-/* HERO */
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:white;
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* ================= HERO ================= */
 .hero{
   height:460px;
   overflow:hidden;
@@ -67,24 +83,23 @@ nav a{
   width:100%;
   height:100%;
   object-fit:cover;
-  animation:zoom 20s infinite alternate;
+  animation:zoom 18s infinite alternate;
 }
 
 @keyframes zoom{
   from{ transform:scale(1); }
-  to{ transform:scale(1.1); }
+  to{ transform:scale(1.08); }
 }
 
-/* ACHIEVEMENTS */
+/* ================= ACHIEVEMENTS ================= */
 .achievements{
   padding:100px 60px;
-  background:white;
+  background:#ffffff;
   text-align:center;
 }
 
 .achievements h2{
   font-size:40px;
-  margin-bottom:20px;
 }
 
 .achievements h2 span{
@@ -92,14 +107,14 @@ nav a{
 }
 
 .stats{
-  display:flex;
-  justify-content:space-around;
   margin-top:70px;
+  display:flex;
+  justify-content:center;
+  gap:60px;
   flex-wrap:wrap;
-  gap:40px;
 }
 
-/* STAT ITEM */
+/* ================= STAT ================= */
 .stat{
   opacity:0;
   transform:translateY(40px);
@@ -111,15 +126,14 @@ nav a{
   transform:translateY(0);
 }
 
-/* SQUARE BOX */
+/* ================= SQUARE ================= */
 .square{
   position:relative;
   width:170px;
   height:170px;
   border-radius:18px;
   overflow:hidden;
-  box-shadow:0 18px 40px rgba(0,0,0,.25);
-  cursor:pointer;
+  box-shadow:0 16px 40px rgba(0,0,0,.25);
 }
 
 /* IMAGE */
@@ -135,11 +149,11 @@ nav a{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.25);
-  transition:background .6s ease;
+  background:rgba(0,0,0,.45);
+  transition:.6s;
 }
 
-/* TEXT */
+/* TEXT — ALWAYS VISIBLE */
 .square span{
   position:absolute;
   inset:0;
@@ -147,32 +161,31 @@ nav a{
   align-items:center;
   justify-content:center;
   color:white;
-  font-size:21px;
+  font-size:22px;
   font-weight:700;
   letter-spacing:1.4px;
-  opacity:0;
-  transform:translateY(20px);
-  transition:all .6s ease;
   z-index:2;
+  opacity:1;
+  animation:textFade 1.2s ease forwards;
 }
 
-/* HOVER */
+@keyframes textFade{
+  from{ opacity:0; transform:translateY(15px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+/* HOVER POLISH */
 .square:hover img{
-  transform:scale(1.2);
+  transform:scale(1.15);
 }
 
 .square:hover::after{
-  background:rgba(0,0,0,.6);
+  background:rgba(0,0,0,.65);
 }
 
-.square:hover span{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* COUNT */
+/* ================= COUNT ================= */
 .count{
-  margin-top:24px;
+  margin-top:22px;
   padding:12px 50px;
   font-size:26px;
   font-weight:bold;
@@ -183,16 +196,21 @@ nav a{
 .blue{ background:#005f86; }
 .red{ background:#c4172c; }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
   background:linear-gradient(90deg,#005f86,#0084b8);
   color:white;
   text-align:center;
-  padding:60px;
+  padding:70px 20px;
   margin-top:100px;
 }
 
-/* RESPONSIVE */
+footer p{
+  margin-top:10px;
+  font-size:16px;
+}
+
+/* ================= RESPONSIVE ================= */
 @media(max-width:900px){
   .stats{
     flex-direction:column;
@@ -204,7 +222,7 @@ footer{
 
 <body>
 
-<!-- TOP -->
+<!-- TOP INFO -->
 <div class="top-info">
   <div class="left">
     <img src="/logo.png">
@@ -216,12 +234,17 @@ footer{
   <div class="right">
     <span>📍 Kathmandu</span>
     <span>📞 +977-01-4993031</span>
+    <span>✉ info@aksharaaschool.edu.np</span>
   </div>
 </div>
 
+<!-- NAV -->
 <nav>
   <a href="#home">Home</a>
+  <a href="#about">About</a>
   <a href="#academics">Academics</a>
+  <a href="#life">Life at Aksharaa</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <!-- HERO -->
@@ -262,34 +285,39 @@ footer{
   </div>
 </section>
 
-<footer>
-  <p>© Aksharaa School, Kathmandu</p>
+<!-- FOOTER -->
+<footer id="contact">
+  <h3>Contact Us</h3>
+  <p>📍 Kageshwori Manohara 9, Kathmandu, Nepal</p>
+  <p>📞 +977-01-4993031 / 32 / 33</p>
+  <p>✉ info@aksharaaschool.edu.np</p>
+  <p>© Aksharaa School</p>
 </footer>
 
 <script>
-/* SCROLL ANIMATION + COUNTERS */
+/* SCROLL + COUNTERS */
 const stats = document.querySelectorAll(".stat");
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
     if(entry.isIntersecting){
       entry.target.classList.add("show");
 
       const counter = entry.target.querySelector(".count");
       if(!counter.classList.contains("done")){
-        animateCounter(counter);
+        animate(counter);
         counter.classList.add("done");
       }
     }
   });
 },{ threshold:0.4 });
 
-stats.forEach(stat => observer.observe(stat));
+stats.forEach(stat=>observer.observe(stat));
 
-function animateCounter(counter){
+function animate(counter){
   let target = +counter.dataset.target;
   let count = 0;
-  let speed = target / 100;
+  let speed = target / 90;
 
   function update(){
     count += speed;
