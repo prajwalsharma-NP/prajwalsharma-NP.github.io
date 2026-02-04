@@ -83,17 +83,31 @@ nav a::after{
 
 nav a:hover::after{ width:100%; }
 
-/* ================= HERO with Parallax ================= */
+/* ================= HERO with Parallax + Zoom Animation ================= */
 .hero{
   height:460px;
   overflow:hidden;
-  background: url('coverpage.jpg') center center / cover no-repeat fixed;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   position:relative;
 }
 
+.hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  animation: zoom 20s infinite alternate;
+  position:fixed; /* parallax effect */
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+/* Zoom animation */
+@keyframes zoom{
+  from{ transform:scale(1); }
+  to{ transform:scale(1.1); }
+}
+
+/* Overlay */
 .hero::after{
   content:"";
   position:absolute;
@@ -285,6 +299,10 @@ footer{
   .top-info .right span{
     margin-left:0;
   }
+
+  .hero img{
+    position:relative; /* on mobile, fixed can be buggy */
+  }
 }
 </style>
 </head>
@@ -318,7 +336,7 @@ footer{
 
 <!-- HERO -->
 <div class="hero" id="home">
-  <!-- Parallax background via CSS -->
+  <img src="coverpage.jpg" alt="Hero Image">
 </div>
 
 <!-- ABOUT -->
