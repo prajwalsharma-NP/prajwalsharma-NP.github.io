@@ -83,7 +83,7 @@ nav a::after{
 
 nav a:hover::after{ width:100%; }
 
-/* ================= HERO with Parallax + Zoom Animation ================= */
+/* ================= HERO with Smooth Zoom + Slide ================= */
 .hero{
   height:460px;
   overflow:hidden;
@@ -94,17 +94,20 @@ nav a:hover::after{ width:100%; }
   width:100%;
   height:100%;
   object-fit:cover;
-  animation: zoom 20s infinite alternate;
-  position:fixed; /* parallax effect */
+  animation: zoomSlide 40s linear infinite;
+  position:absolute;
   top:0;
   left:0;
   z-index:-1;
 }
 
-/* Zoom animation */
-@keyframes zoom{
-  from{ transform:scale(1); }
-  to{ transform:scale(1.1); }
+/* Smooth zoom + pan animation */
+@keyframes zoomSlide{
+  0%   { transform: scale(1) translateX(0); }
+  25%  { transform: scale(1.05) translateX(-2%); }
+  50%  { transform: scale(1.1) translateX(-4%); }
+  75%  { transform: scale(1.05) translateX(-2%); }
+  100% { transform: scale(1) translateX(0); }
 }
 
 /* Overlay */
@@ -301,7 +304,8 @@ footer{
   }
 
   .hero img{
-    position:relative; /* on mobile, fixed can be buggy */
+    position:relative; /* mobile-friendly */
+    animation:none; /* disable animation on mobile */
   }
 }
 </style>
