@@ -81,18 +81,41 @@ nav a:hover::after{ width:100%; }
   width:100%;
   height:100%;
   object-fit:cover;
+  animation:zoom 20s infinite alternate;
+}
+
+@keyframes zoom{
+  from{ transform:scale(1); }
+  to{ transform:scale(1.1); }
 }
 
 /* ================= ABOUT ================= */
 .about{
   padding:90px;
   background:#ffffff;
-  text-align:center;
 }
 
-.about h2{
+.about-container{
+  display:flex;
+  align-items:center;
+  gap:50px;
+}
+
+.about img{
+  width:45%;
+  border-radius:18px;
+  box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+
+.about-text h2{
   font-size:38px;
-  margin-bottom:20px;
+  margin-bottom:15px;
+  color:#005f86;
+}
+
+.about-text p{
+  font-size:17px;
+  line-height:1.7;
 }
 
 /* ================= ACHIEVEMENTS ================= */
@@ -129,7 +152,7 @@ nav a:hover::after{ width:100%; }
   transition:transform .8s ease;
 }
 
-/* OVERLAY (hidden initially) */
+/* OVERLAY HIDDEN */
 .square::after{
   content:"";
   position:absolute;
@@ -139,7 +162,7 @@ nav a:hover::after{ width:100%; }
   transition:.5s ease;
 }
 
-/* TEXT (hidden initially) */
+/* TEXT HIDDEN */
 .square span{
   position:absolute;
   inset:0;
@@ -156,7 +179,7 @@ nav a:hover::after{ width:100%; }
   z-index:2;
 }
 
-/* HOVER EFFECT */
+/* HOVER */
 .square:hover img{
   transform:scale(1.1);
 }
@@ -183,19 +206,15 @@ nav a:hover::after{ width:100%; }
 .blue{ background:#005f86; }
 .red{ background:#c4172c; }
 
-/* ================= LIFE AT AKSHARAA ================= */
+/* ================= LIFE ================= */
 .life{
   padding:90px;
   background:#ffffff;
   text-align:center;
 }
 
-.life h2{
-  font-size:38px;
-  margin-bottom:40px;
-}
-
 .life-grid{
+  margin-top:40px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:25px;
@@ -219,8 +238,17 @@ footer{
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
-  .stats{ flex-direction:column; }
-  .life-grid{ grid-template-columns:1fr; }
+  .about-container{
+    flex-direction:column;
+  }
+
+  .about img{
+    width:100%;
+  }
+
+  .life-grid{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -259,8 +287,16 @@ footer{
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <h2>About Aksharaa School</h2>
-  <p>We provide value-based education with academic excellence and emotional intelligence.</p>
+  <div class="about-container">
+    <img src="/img1.jpg">
+    <div class="about-text">
+      <h2>About Aksharaa School</h2>
+      <p>
+        Aksharaa School is committed to providing value-based education with
+        academic excellence, emotional intelligence, and holistic development.
+      </p>
+    </div>
+  </div>
 </section>
 
 <!-- ACHIEVEMENTS -->
