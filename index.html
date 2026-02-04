@@ -12,13 +12,8 @@
   font-family:"Segoe UI", sans-serif;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:#f4f8fb;
-}
+html{ scroll-behavior:smooth; }
+body{ background:#f4f8fb; }
 
 /* TOP BAR */
 .top-info{
@@ -26,7 +21,7 @@ body{
   justify-content:space-between;
   align-items:center;
   padding:14px 50px;
-  background:#ffffff;
+  background:#fff;
   box-shadow:0 2px 6px rgba(0,0,0,.1);
 }
 
@@ -36,17 +31,9 @@ body{
   gap:14px;
 }
 
-.top-info img{
-  width:55px;
-}
-
-.top-info h2{
-  color:#005f86;
-}
-
-.top-info small{
-  color:#888;
-}
+.top-info img{ width:55px; }
+.top-info h2{ color:#005f86; }
+.top-info small{ color:#888; }
 
 .top-info .right span{
   margin-left:25px;
@@ -67,23 +54,7 @@ nav a{
   color:white;
   margin:0 18px;
   font-weight:600;
-  position:relative;
   text-decoration:none;
-}
-
-nav a::after{
-  content:"";
-  width:0;
-  height:2px;
-  background:white;
-  position:absolute;
-  bottom:-5px;
-  left:0;
-  transition:.3s;
-}
-
-nav a:hover::after{
-  width:100%;
 }
 
 /* HERO */
@@ -100,126 +71,117 @@ nav a:hover::after{
 }
 
 @keyframes zoom{
-  from{transform:scale(1);}
-  to{transform:scale(1.1);}
+  from{ transform:scale(1); }
+  to{ transform:scale(1.1); }
 }
-
-/* CARDS */
-.cards{
-  display:flex;
-  justify-content:center;
-  gap:35px;
-  padding:80px;
-}
-
-.card{
-  width:320px;
-  background:white;
-  padding:35px;
-  border-radius:18px;
-  box-shadow:0 15px 30px rgba(0,0,0,.15);
-  text-align:center;
-  transition:.4s;
-}
-
-.card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 25px 40px rgba(0,0,0,.25);
-}
-
-.icon{
-  font-size:46px;
-  margin-bottom:15px;
-}
-
-.blue{color:#0077a8}
-.green{color:#1fa44a}
-.red{color:#c4172c}
 
 /* ACHIEVEMENTS */
 .achievements{
-  padding:90px;
+  padding:100px 60px;
   background:white;
   text-align:center;
 }
 
 .achievements h2{
   font-size:40px;
+  margin-bottom:20px;
 }
 
 .achievements h2 span{
   color:#c4172c;
 }
 
-.achievements p{
-  width:70%;
-  margin:25px auto 60px;
-}
-
 .stats{
   display:flex;
   justify-content:space-around;
+  margin-top:70px;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+/* STAT ITEM */
+.stat{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .9s ease;
+}
+
+.stat.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* SQUARE BOX */
-.diamond{
-  width:150px;
-  height:150px;
-  border-radius:16px;
-  border:3px solid #7fd3ff;
-  background:#ffffff;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
+.square{
+  position:relative;
+  width:170px;
+  height:170px;
+  border-radius:18px;
   overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,.25);
+  cursor:pointer;
 }
 
-.diamond img{
+/* IMAGE */
+.square img{
   width:100%;
   height:100%;
   object-fit:cover;
+  transition:transform 1s ease;
 }
 
-.count{
-  margin-top:22px;
-  padding:12px 46px;
+/* OVERLAY */
+.square::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.25);
+  transition:background .6s ease;
+}
+
+/* TEXT */
+.square span{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   color:white;
+  font-size:21px;
+  font-weight:700;
+  letter-spacing:1.4px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:all .6s ease;
+  z-index:2;
+}
+
+/* HOVER */
+.square:hover img{
+  transform:scale(1.2);
+}
+
+.square:hover::after{
+  background:rgba(0,0,0,.6);
+}
+
+.square:hover span{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* COUNT */
+.count{
+  margin-top:24px;
+  padding:12px 50px;
   font-size:26px;
   font-weight:bold;
+  color:white;
   border-radius:8px;
 }
 
-.count.blue{background:#005f86}
-.count.red{background:#c4172c}
-
-/* GALLERY */
-.gallery{
-  padding:80px;
-  background:#f4f8fb;
-}
-
-.gallery h2{
-  text-align:center;
-  font-size:38px;
-  margin-bottom:40px;
-}
-
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
-}
-
-.gallery-grid img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:14px;
-  transition:.4s;
-}
-
-.gallery-grid img:hover{
-  transform:scale(1.05);
-  box-shadow:0 20px 40px rgba(0,0,0,.3);
-}
+.blue{ background:#005f86; }
+.red{ background:#c4172c; }
 
 /* FOOTER */
 footer{
@@ -227,11 +189,15 @@ footer{
   color:white;
   text-align:center;
   padding:60px;
+  margin-top:100px;
 }
 
-footer p{
-  margin-top:10px;
-  font-size:16px;
+/* RESPONSIVE */
+@media(max-width:900px){
+  .stats{
+    flex-direction:column;
+    align-items:center;
+  }
 }
 </style>
 </head>
@@ -248,98 +214,79 @@ footer p{
     </div>
   </div>
   <div class="right">
-    <span>📍 Kageshwori Manohara 9, Kathmandu</span>
-    <span>✉ info@aksharaaschool.edu.np</span>
-    <span>📞 +977-01-4993031/32/33</span>
+    <span>📍 Kathmandu</span>
+    <span>📞 +977-01-4993031</span>
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <a href="#home">Home</a>
-  <a href="#about">About</a>
   <a href="#academics">Academics</a>
-  <a href="#life">Life of Aksharaa</a>
-  <a href="#contact">Contact</a>
 </nav>
 
-<!-- HOME -->
+<!-- HERO -->
 <div class="hero" id="home">
   <img src="coverpage.jpg">
 </div>
 
-<!-- ABOUT -->
-<section class="cards" id="about">
-  <div class="card">
-    <div class="icon blue">🎯</div>
-    <h3>OUR MISSION</h3>
-    <p>Providing value-based education with academic excellence and emotional intelligence.</p>
-  </div>
-
-  <div class="card">
-    <div class="icon green">👁</div>
-    <h3>OUR VISION</h3>
-    <p>Creating globally competent, lifelong learners and responsible citizens.</p>
-  </div>
-
-  <div class="card">
-    <div class="icon red">❤️</div>
-    <h3>OUR VALUES</h3>
-    <p>Integrity, innovation, inclusivity, leadership and critical thinking.</p>
-  </div>
-</section>
-
-<!-- ACADEMICS -->
+<!-- ACHIEVEMENTS -->
 <section class="achievements" id="academics">
   <h2>Our <span>Achievements</span></h2>
-  <p>Celebrating excellence in academics, sports, arts and global recognition.</p>
 
   <div class="stats">
+
     <div class="stat">
-      <div class="diamond">
-        <img src="/img1.jpg" alt="Staff">
+      <div class="square">
+        <img src="/img1.jpg">
+        <span>STAFF</span>
       </div>
       <div class="count blue" data-target="200">0</div>
     </div>
 
     <div class="stat">
-      <div class="diamond">
-        <img src="/img2.jpg" alt="Students">
+      <div class="square">
+        <img src="/img2.jpg">
+        <span>STUDENTS</span>
       </div>
       <div class="count red" data-target="700">0</div>
     </div>
 
     <div class="stat">
-      <div class="diamond">
-        <img src="/img3.jpg" alt="Graduates">
+      <div class="square">
+        <img src="/img3.jpg">
+        <span>GRADUATES</span>
       </div>
       <div class="count blue" data-target="400">0</div>
     </div>
+
   </div>
 </section>
 
-<!-- LIFE -->
-<section class="gallery" id="life">
-  <h2>Life at Aksharaa</h2>
-  <div class="gallery-grid">
-    <img src="/img1.jpg">
-    <img src="/img2.jpg">
-    <img src="/img3.jpg">
-  </div>
-</section>
-
-<!-- CONTACT -->
-<footer id="contact">
-  <h3>Contact Us</h3>
-  <p>📍 Kageshwori Manohara 9, Kathmandu, Nepal</p>
-  <p>📞 +977-01-4993031/32/33</p>
-  <p>✉ info@aksharaaschool.edu.np</p>
+<footer>
+  <p>© Aksharaa School, Kathmandu</p>
 </footer>
 
 <script>
-const counters = document.querySelectorAll(".count");
+/* SCROLL ANIMATION + COUNTERS */
+const stats = document.querySelectorAll(".stat");
 
-counters.forEach(counter => {
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+
+      const counter = entry.target.querySelector(".count");
+      if(!counter.classList.contains("done")){
+        animateCounter(counter);
+        counter.classList.add("done");
+      }
+    }
+  });
+},{ threshold:0.4 });
+
+stats.forEach(stat => observer.observe(stat));
+
+function animateCounter(counter){
   let target = +counter.dataset.target;
   let count = 0;
   let speed = target / 100;
@@ -354,7 +301,7 @@ counters.forEach(counter => {
     }
   }
   update();
-});
+}
 </script>
 
 </body>
