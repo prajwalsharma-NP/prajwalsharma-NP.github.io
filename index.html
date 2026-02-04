@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -161,26 +161,21 @@ nav a:hover::after{
   justify-content:space-around;
 }
 
-.stat{
-  text-align:center;
-}
-
+/* SQUARE BOX */
 .diamond{
   width:150px;
   height:150px;
-  transform:rotate(45deg);
   border-radius:16px;
   border:3px solid #7fd3ff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  background:linear-gradient(145deg,#ffffff,#eaf6ff);
+  background:#ffffff;
   box-shadow:0 10px 25px rgba(0,0,0,.15);
+  overflow:hidden;
 }
 
-.diamond *{
-  transform:rotate(-45deg);
+.diamond img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 .count{
@@ -288,7 +283,7 @@ footer p{
   </div>
 
   <div class="card">
-    <div class="icon red"></div>
+    <div class="icon red">❤️</div>
     <h3>OUR VALUES</h3>
     <p>Integrity, innovation, inclusivity, leadership and critical thinking.</p>
   </div>
@@ -296,33 +291,34 @@ footer p{
 
 <!-- ACADEMICS -->
 <section class="achievements" id="academics">
-  <h2>Our <span>Achievement</span></h2>
+  <h2>Our <span>Achievements</span></h2>
   <p>Celebrating excellence in academics, sports, arts and global recognition.</p>
 
   <div class="stats">
     <div class="stat">
-      <div class="diamond"><p>Staff</p></div>
+      <div class="diamond">
+        <img src="/img1.jpg" alt="Staff">
+      </div>
       <div class="count blue" data-target="200">0</div>
     </div>
 
     <div class="stat">
-      <div class="diamond">😊<p>Students</p></div>
+      <div class="diamond">
+        <img src="/img2.jpg" alt="Students">
+      </div>
       <div class="count red" data-target="700">0</div>
     </div>
 
     <div class="stat">
-      <div class="diamond"><p>Graduates</p></div>
+      <div class="diamond">
+        <img src="/img3.jpg" alt="Graduates">
+      </div>
       <div class="count blue" data-target="400">0</div>
-    </div>
-
-    <div class="stat">
-      <div class="diamond"><p>Years</p></div>
-      <div class="count red" data-target="13">0</div>
     </div>
   </div>
 </section>
 
-<!-- LIFE OF AKSHARAA -->
+<!-- LIFE -->
 <section class="gallery" id="life">
   <h2>Life at Aksharaa</h2>
   <div class="gallery-grid">
@@ -341,30 +337,25 @@ footer p{
 </footer>
 
 <script>
-const counters=document.querySelectorAll(".count");
-counters.forEach(counter=>{
-  let target=+counter.dataset.target;
-  let count=0;
-  let speed=target/100;
-  let update=()=>{
-    count+=speed;
-    if(count<target){
-      counter.innerText=Math.floor(count)+"+";
+const counters = document.querySelectorAll(".count");
+
+counters.forEach(counter => {
+  let target = +counter.dataset.target;
+  let count = 0;
+  let speed = target / 100;
+
+  function update(){
+    count += speed;
+    if(count < target){
+      counter.innerText = Math.floor(count) + "+";
       requestAnimationFrame(update);
     }else{
-      counter.innerText=target+"+";
+      counter.innerText = target + "+";
     }
-  };
+  }
   update();
 });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
