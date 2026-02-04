@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <title>Aksharaa School</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:"Inter", sans-serif;
+  font-family:"Segoe UI", sans-serif;
 }
 
 html{ scroll-behavior:smooth; }
@@ -26,9 +23,6 @@ body{ background:#f4f8fb; }
   padding:14px 50px;
   background:#ffffff;
   box-shadow:0 2px 6px rgba(0,0,0,.1);
-  position:sticky;
-  top:0;
-  z-index:1000;
 }
 
 .top-info .left{
@@ -49,21 +43,21 @@ body{ background:#f4f8fb; }
 /* ================= NAV ================= */
 nav{
   background:linear-gradient(90deg,#005f86,#0084b8);
-  padding:14px 0;
-  text-align:center;
+  padding:14px 50px;
   position:sticky;
-  top:55px;
-  z-index:999;
-  transition:.4s;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:center;
+  gap:30px;
 }
 
 nav a{
   color:white;
-  margin:0 18px;
   font-weight:600;
   text-decoration:none;
   position:relative;
-  font-size:16px;
+  padding:6px 0;
 }
 
 nav a::after{
@@ -79,79 +73,27 @@ nav a::after{
 
 nav a:hover::after{ width:100%; }
 
-/* ================= HERO ================= */
+/* ================= HERO with Parallax ================= */
 .hero{
-  height:80vh;
+  height:460px;
   overflow:hidden;
-  position:relative;
+  background: url('coverpage.jpg') center center / cover no-repeat fixed;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.hero img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  animation:zoom 30s infinite alternate;
-  transition:transform 1s ease-out;
-}
-
+/* Optional zoom effect on parallax image */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.25);
-}
-
-.hero-content{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  color:white;
-  text-align:center;
-  opacity:0;
-  transform:translateY(50px);
-  animation:fadeUp 1.5s forwards 0.5s;
-}
-
-.hero-content h1{
-  font-family: "Playfair Display", serif;
-  font-size:3.5rem;
-  margin-bottom:20px;
-}
-
-.hero-content p{
-  font-size:1.3rem;
-  margin-bottom:30px;
-}
-
-.hero-content .btn{
-  background:#ffdd59;
-  color:#111;
-  padding:12px 30px;
-  border-radius:50px;
-  font-weight:600;
-  text-decoration:none;
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-
-.hero-content .btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 8px 20px rgba(0,0,0,0.3);
-}
-
-@keyframes zoom{
-  from{ transform:scale(1); }
-  to{ transform:scale(1.1); }
-}
-
-@keyframes fadeUp{
-  0%{ opacity:0; transform:translateY(50px); }
-  100%{ opacity:1; transform:translateY(0); }
+  background:rgba(0,0,0,0.2);
 }
 
 /* ================= ABOUT ================= */
 .about{
-  padding:90px 50px;
+  padding:90px;
   background:#ffffff;
 }
 
@@ -159,23 +101,12 @@ nav a:hover::after{ width:100%; }
   display:flex;
   align-items:center;
   gap:50px;
-  flex-wrap:wrap;
 }
 
 .about img{
   width:45%;
   border-radius:18px;
   box-shadow:0 15px 30px rgba(0,0,0,.2);
-  transform:translateX(-50px);
-  opacity:0;
-  transition: all 1s ease;
-}
-
-.about-text{
-  width:50%;
-  opacity:0;
-  transform:translateX(50px);
-  transition: all 1s ease;
 }
 
 .about-text h2{
@@ -199,18 +130,12 @@ nav a:hover::after{ width:100%; }
 .education h2{
   font-size:40px;
   margin-bottom:15px;
-  opacity:0;
-  transform:translateY(30px);
-  transition: all 1s ease;
 }
 
 .education p{
   max-width:700px;
   margin:0 auto 60px;
   font-size:17px;
-  opacity:0;
-  transform:translateY(30px);
-  transition: all 1s ease;
 }
 
 /* ================= STATS ================= */
@@ -219,9 +144,9 @@ nav a:hover::after{ width:100%; }
   justify-content:center;
   gap:60px;
   flex-wrap:wrap;
-  margin-top:40px;
 }
 
+/* ================= SQUARE ================= */
 .square{
   position:relative;
   width:170px;
@@ -230,9 +155,6 @@ nav a:hover::after{ width:100%; }
   overflow:hidden;
   box-shadow:0 16px 40px rgba(0,0,0,.25);
   cursor:pointer;
-  transform:scale(0.8);
-  opacity:0;
-  transition:all 0.8s ease;
 }
 
 .square img{
@@ -296,17 +218,9 @@ nav a:hover::after{ width:100%; }
 
 /* ================= LIFE ================= */
 .life{
-  padding:90px 50px;
+  padding:90px;
   background:#ffffff;
   text-align:center;
-}
-
-.life h2{
-  font-size:38px;
-  margin-bottom:30px;
-  opacity:0;
-  transform:translateY(30px);
-  transition:all 1s ease;
 }
 
 .life-grid{
@@ -321,9 +235,6 @@ nav a:hover::after{ width:100%; }
   height:260px;
   object-fit:cover;
   border-radius:14px;
-  transform:translateY(30px);
-  opacity:0;
-  transition: all 1s ease;
 }
 
 /* ================= FOOTER ================= */
@@ -341,14 +252,18 @@ footer{
     flex-direction:column;
   }
 
-  .about img, .about-text{
+  .about img{
     width:100%;
-    transform:none;
-    opacity:1;
   }
 
   .life-grid{
     grid-template-columns:1fr;
+  }
+
+  nav{
+    flex-direction:column;
+    gap:15px;
+    padding:14px 20px;
   }
 }
 </style>
@@ -383,19 +298,14 @@ footer{
 
 <!-- HERO -->
 <div class="hero" id="home">
-  <img src="coverpage.jpg">
-  <div class="hero-content">
-    <h1>Excellence in Learning</h1>
-    <p>Holistic education for academic and personal growth.</p>
-    <a href="#about" class="btn">Discover More</a>
-  </div>
+  <!-- Parallax background set via CSS -->
 </div>
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-container">
-    <img src="/img1.jpg" class="animate">
-    <div class="about-text animate">
+    <img src="/img1.jpg">
+    <div class="about-text">
       <h2>About Aksharaa School</h2>
       <p>
         Aksharaa School is committed to providing value-based education with
@@ -407,46 +317,46 @@ footer{
 
 <!-- EDUCATION -->
 <section class="education" id="education">
-  <h2 class="animate">Education</h2>
-  <p class="animate">
+  <h2>Education</h2>
+  <p>
     Our education system focuses on academic excellence, discipline,
     creativity, and holistic student development.
   </p>
 
   <div class="stats">
     <div>
-      <div class="square animate">
+      <div class="square">
         <img src="/img1.jpg">
         <span>STAFF</span>
       </div>
-      <div class="count blue" data-count="200">0</div>
+      <div class="count blue">200+</div>
     </div>
 
     <div>
-      <div class="square animate">
+      <div class="square">
         <img src="/img2.jpg">
         <span>STUDENTS</span>
       </div>
-      <div class="count red" data-count="700">0</div>
+      <div class="count red">700+</div>
     </div>
 
     <div>
-      <div class="square animate">
+      <div class="square">
         <img src="/img3.jpg">
         <span>GRADUATES</span>
       </div>
-      <div class="count blue" data-count="400">0</div>
+      <div class="count blue">400+</div>
     </div>
   </div>
 </section>
 
 <!-- LIFE -->
 <section class="life" id="life">
-  <h2 class="animate">Life at Aksharaa</h2>
+  <h2>Life at Aksharaa</h2>
   <div class="life-grid">
-    <img src="/img1.jpg" class="animate">
-    <img src="/img2.jpg" class="animate">
-    <img src="/img3.jpg" class="animate">
+    <img src="/img1.jpg">
+    <img src="/img2.jpg">
+    <img src="/img3.jpg">
   </div>
 </section>
 
@@ -457,49 +367,6 @@ footer{
   <p>✉ info@aksharaaschool.edu.np</p>
   <p>© Aksharaa School</p>
 </footer>
-
-<!-- SCRIPT -->
-<script>
-// SCROLL ANIMATION
-const animateElements = document.querySelectorAll('.animate');
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = 'translateY(0) translateX(0)';
-      entry.target.style.transition = 'all 1s ease';
-    }
-  });
-},{threshold:0.2});
-
-animateElements.forEach(el=>observer.observe(el));
-
-// COUNT-UP
-const counters = document.querySelectorAll('.count');
-counters.forEach(counter=>{
-  let started = false;
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-count');
-    const count = +counter.innerText;
-    const increment = Math.ceil(target / 100);
-    if(count < target){
-      counter.innerText = count + increment;
-      setTimeout(updateCount, 20);
-    } else {
-      counter.innerText = target;
-    }
-  };
-  const cObserver = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting && !started){
-        started=true;
-        updateCount();
-      }
-    });
-  }, {threshold:0.5});
-  cObserver.observe(counter);
-});
-</script>
 
 </body>
 </html>
