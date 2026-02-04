@@ -20,7 +20,7 @@ body{ background:#f4f8fb; }
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 50px;
+  padding:6px 20px; /* smaller height and width */
   background:#ffffff;
   box-shadow:0 2px 6px rgba(0,0,0,.1);
 }
@@ -28,22 +28,32 @@ body{ background:#f4f8fb; }
 .top-info .left{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:10px;
 }
 
-.top-info img{ width:55px; }
-.top-info h2{ color:#005f86; }
-.top-info small{ color:#666; }
+.top-info img{ 
+  width:40px; /* smaller logo */
+}
+
+.top-info h2{
+  font-size:18px; /* smaller title */
+  color:#005f86;
+}
+
+.top-info small{
+  font-size:12px;
+  color:#666;
+}
 
 .top-info .right span{
-  margin-left:22px;
-  font-size:14px;
+  margin-left:15px;
+  font-size:12px;
 }
 
 /* ================= NAV ================= */
 nav{
   background:linear-gradient(90deg,#005f86,#0084b8);
-  padding:14px 50px;
+  padding:12px 50px;
   position:sticky;
   top:0;
   z-index:1000;
@@ -81,9 +91,9 @@ nav a:hover::after{ width:100%; }
   display:flex;
   align-items:center;
   justify-content:center;
+  position:relative;
 }
 
-/* Optional zoom effect on parallax image */
 .hero::after{
   content:"";
   position:absolute;
@@ -189,7 +199,6 @@ nav a:hover::after{ width:100%; }
   z-index:2;
 }
 
-/* HOVER */
 .square:hover img{
   transform:scale(1.1);
 }
@@ -263,7 +272,18 @@ footer{
   nav{
     flex-direction:column;
     gap:15px;
-    padding:14px 20px;
+    padding:12px 20px;
+  }
+
+  .top-info{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:5px;
+    padding:6px 15px;
+  }
+
+  .top-info .right span{
+    margin-left:0;
   }
 }
 </style>
@@ -298,7 +318,7 @@ footer{
 
 <!-- HERO -->
 <div class="hero" id="home">
-  <!-- Parallax background set via CSS -->
+  <!-- Parallax background via CSS -->
 </div>
 
 <!-- ABOUT -->
